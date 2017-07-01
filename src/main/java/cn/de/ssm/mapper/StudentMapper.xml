@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.de.ssm.mapper.StudentMapper" >
+
+    <resultMap id="student" type="cn.de.ssm.po.Student">
+        <id column="id" property="id" jdbcType="INTEGER" />
+        <result column="contact_subject" property="contact_subject" jdbcType="VARCHAR" />
+        <result column="contact_phone" property="contact_phone" jdbcType="VARCHAR" />
+        <result column="contact_email" property="contact_email" jdbcType="VARCHAR" />
+        <result column="contact_name" property="contact_name" jdbcType="VARCHAR" />
+        <result column="contact_message" property="contact_message" jdbcType="VARCHAR" />
+    </resultMap>
+
+    <insert id="register" parameterType="student">
+        INSERT INTO student(contact_name,contact_subject,contact_phone,contact_email,contact_message)
+         VALUES(#{contact_name},#{contact_subject},#{contact_phone},#{contact_email},#{contact_message})
+    </insert>
+
+</mapper>
