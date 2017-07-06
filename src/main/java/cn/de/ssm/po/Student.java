@@ -1,16 +1,49 @@
 package cn.de.ssm.po;
 
+import org.aspectj.lang.annotation.Before;
+import org.junit.experimental.theories.DataPoint;
+import org.springframework.stereotype.Component;
+
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.validation.constraints.Size;
+import java.util.Date;
+
 /**
  * Created by 林进华 on 2017/7/1.
  */
+@Table(name = "student")
 public class Student {
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id ;
+    @Size(min = 10,max = 13,message = "{student.subject.error.length}")
     private String contact_subject ;
+    @Size(min = 10,max = 13,message = "{student.phone.error.length}")
     private String contact_phone ;
     private String contact_email ;
     private String contact_name ;
     private String contact_message ;
-    private int id ;
+    private Date contact_data ;
+    private String contact_major ;
+
+    public Date getContact_data() {
+        return contact_data;
+    }
+
+    public void setContact_data(Date contact_data) {
+        this.contact_data = contact_data;
+    }
+
+    public String getContact_major() {
+        return contact_major;
+    }
+
+    public void setContact_major(String contact_major) {
+        this.contact_major = contact_major;
+    }
 
     public int getId() {
         return id;

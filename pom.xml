@@ -8,17 +8,6 @@
   <name>ssm2 Maven Webapp</name>
   <url>http://maven.apache.org</url>
 
-    <resources>
-        <resource>
-            <directory>src/main/java</directory>
-            <includes>
-                <include>**/*.properties</include>
-                <include>**/*.xml</include>
-            </includes>
-            <filtering>false</filtering>
-        </resource>
-    </resources>
-
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
@@ -307,11 +296,39 @@
         <artifactId>commons-logging</artifactId>
         <version>1.1.1</version>
     </dependency>
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>4.12</version>
-        </dependency>
+
+    <dependency>
+        <groupId>junit</groupId>
+        <artifactId>junit</artifactId>
+        <version>4.12</version>
+    </dependency>
+
+    <!-- 分页插件pagehelper-->
+    <dependency>
+        <groupId>com.github.pagehelper</groupId>
+        <artifactId>pagehelper</artifactId>
+        <version>4.1.4</version>
+    </dependency>
+
+    <!-- JPA的注解-->
+    <dependency>
+        <groupId>javax.persistence</groupId>
+        <artifactId>persistence-api</artifactId>
+        <version>1.0</version>
+    </dependency>
+
+    <!-- https://mvnrepository.com/artifact/tk.mybatis/mapper -->
+    <dependency>
+        <groupId>tk.mybatis</groupId>
+        <artifactId>mapper</artifactId>
+        <version>3.2.0</version>
+    </dependency>
+
+    <dependency>
+        <groupId>com.github.abel533</groupId>
+        <artifactId>entitymapper</artifactId>
+        <version>1.0.0</version>
+    </dependency>
 
     </dependencies>
 
@@ -323,6 +340,7 @@
             <directory>src/main/java</directory>
             <includes>
                 <include>**/*.xml</include>
+                <include>**/*.properties</include>
             </includes>
             <filtering>true</filtering>
         </resource>

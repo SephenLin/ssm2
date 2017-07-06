@@ -9,11 +9,22 @@
         <result column="contact_email" property="contact_email" jdbcType="VARCHAR" />
         <result column="contact_name" property="contact_name" jdbcType="VARCHAR" />
         <result column="contact_message" property="contact_message" jdbcType="VARCHAR" />
+        <result column="contact_major" property="contact_major" jdbcType="VARCHAR" />
+        <result column="contact_data" property="contact_data" jdbcType="DATE" />
     </resultMap>
 
     <insert id="register" parameterType="student">
-        INSERT INTO student(contact_name,contact_subject,contact_phone,contact_email,contact_message)
-         VALUES(#{contact_name},#{contact_subject},#{contact_phone},#{contact_email},#{contact_message})
+        INSERT INTO student(contact_name,contact_subject,contact_phone,contact_email,contact_message,contact_major,contact_data)
+         VALUES(#{contact_name},#{contact_subject},#{contact_phone},#{contact_email},#{contact_message},#{contact_major},#{contact_data})
     </insert>
+
+    <select id="selectStudentByNameAndNumber" resultMap="student">
+        SELECT * FROM student WHERE
+         contact_name = #{name,jdbcType=VARCHAR} AND contact_subject = #{number,jdbcType=VARCHAR}
+    </select>
+
+    <select id="likeSelectByName" resultMap="student">
+        SELECT * FROM  student WHERE contact_name like CONCAT(CONCAT('%',#{name,jdbcType=VARCHAR}), '%')
+    </select>
 
 </mapper>

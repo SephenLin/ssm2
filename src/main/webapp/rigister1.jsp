@@ -1,4 +1,4 @@
-<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+﻿<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%
     String path = request.getContextPath();
     String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -36,7 +36,7 @@
     <!-- Hero slider style (https://codyhouse.co/gem/hero-slider/) -->
     <link rel="stylesheet" href="css/magnific-popup.css">
     <!-- Magnific popup style (http://dimsemenov.com/plugins/magnific-popup/) -->
-    <link rel="stylesheet" href="css/templatemo-style.css">
+    <link rel="stylesheet" href="css/studentTemplatemo-style.css">
     <!-- Templatemo style -->
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -413,6 +413,10 @@
 
                                             <div class="form-group col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 tm-form-group-right">
                                                 <input type="text" id="contact_phone" name="contact_phone" class="form-control" placeholder="${student.contact_phone == null ? "手机号" : student.contact_phone}"  min="7" max="11" required/>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <input type="text" id="contact_major" name="contact_major" class="form-control" placeholder="专业"  required/>
                                             </div>
 
                                             <div class="form-group">

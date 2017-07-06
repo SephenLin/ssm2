@@ -1,9 +1,17 @@
 package cn.de.ssm.po;
 
-	public class User {
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Table(name = "user")
+public class User {
 		//----------------->属性
 		private String name ;
 		private String password ;
+		@Id
+		@GeneratedValue(strategy = GenerationType.IDENTITY)
 		private int id ;
 		private String sex ;
 		
