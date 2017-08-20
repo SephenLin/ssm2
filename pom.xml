@@ -317,17 +317,32 @@
         <version>1.0</version>
     </dependency>
 
-    <!-- https://mvnrepository.com/artifact/tk.mybatis/mapper -->
+        <!--通用mapper-->
     <dependency>
         <groupId>tk.mybatis</groupId>
         <artifactId>mapper</artifactId>
         <version>3.2.0</version>
     </dependency>
 
+    <!--通用mapper-->
     <dependency>
         <groupId>com.github.abel533</groupId>
         <artifactId>entitymapper</artifactId>
         <version>1.0.0</version>
+    </dependency>
+
+    <!-- https://mvnrepository.com/artifact/org.codehaus.jackson/jackson-mapper-asl JSON包-->
+    <dependency>
+        <groupId>org.codehaus.jackson</groupId>
+        <artifactId>jackson-mapper-asl</artifactId>
+        <version>1.9.13</version>
+    </dependency>
+
+    <!-- https://mvnrepository.com/artifact/org.codehaus.jackson/jackson-core-asl JSON包-->
+    <dependency>
+        <groupId>org.codehaus.jackson</groupId>
+        <artifactId>jackson-core-asl</artifactId>
+        <version>1.9.13</version>
     </dependency>
 
     </dependencies>

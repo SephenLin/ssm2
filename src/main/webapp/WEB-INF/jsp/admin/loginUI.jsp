@@ -1,8 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
-<%
-    String path = request.getContextPath();
-    String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
-%>
+<% String path = request.getContextPath();String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";%>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
@@ -121,7 +118,7 @@
                         },
                         stringLength: {
                             max: 18,
-                                message: '用户名长度必须在18位之内'
+                            message: '用户名长度必须在18位之内'
                         },
                         regexp: {
                             regexp: /^[a-zA-Z0-9_]+$/,

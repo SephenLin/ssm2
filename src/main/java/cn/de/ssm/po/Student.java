@@ -28,6 +28,15 @@ public class Student {
     private String contact_message ;
     private Date contact_data ;
     private String contact_major ;
+    private String contact_department ;
+
+    public String getContact_department() {
+        return contact_department;
+    }
+
+    public void setContact_department(String contact_department) {
+        this.contact_department = contact_department;
+    }
 
     public Date getContact_data() {
         return contact_data;

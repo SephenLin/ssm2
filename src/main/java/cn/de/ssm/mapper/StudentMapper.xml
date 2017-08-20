@@ -13,9 +13,60 @@
         <result column="contact_data" property="contact_data" jdbcType="DATE" />
     </resultMap>
 
+    <sql id="sql_where">
+        <where>
+            <if test="id != null">
+                and id = #{id}
+            </if>
+            <if test="contact_subject != null">
+                and contact_subject = #{contact_subject}
+            </if>
+            <if test="contact_phone != null">
+                and contact_phone = #{contact_phone}
+            </if>
+            <if test="contact_email != null">
+                and contact_email = #{contact_email}
+            </if>
+            <if test="contact_name != null">
+                and contact_name = #{contact_name}
+            </if>
+            <if test="contact_major != null">
+                and contact_major = #{contact_major}
+            </if>
+            <if test="contact_department != null">
+                and contact_department = #{contact_department}
+            </if>
+        </where>
+    </sql>
+    <sql id="sql_select">
+        <where>
+            <if test="id != null">
+                OR id LIKE '%${id}%'
+            </if>
+            <if test="contact_subject != null">
+                OR contact_subject LIKE '%${contact_subject}%'
+            </if>
+            <if test="contact_phone != null">
+                OR contact_phone LIKE '%${contact_phone}%'
+            </if>
+            <if test="contact_email != null">
+                OR contact_email LIKE '%${contact_email}%'
+            </if>
+            <if test="contact_name != null">
+                OR contact_name LIKE '%${contact_name}%'
+            </if>
+            <if test="contact_major != null">
+                OR contact_major LIKE '%${contact_major}%'
+            </if>
+            <if test="contact_department != null">
+                OR contact_department LIKE '%${contact_department}%'
+            </if>
+        </where>
+    </sql>
+
     <insert id="register" parameterType="student">
-        INSERT INTO student(contact_name,contact_subject,contact_phone,contact_email,contact_message,contact_major,contact_data)
-         VALUES(#{contact_name},#{contact_subject},#{contact_phone},#{contact_email},#{contact_message},#{contact_major},#{contact_data})
+        INSERT INTO student(contact_name,contact_subject,contact_phone,contact_email,contact_message,contact_major,contact_data,contact_department)
+         VALUES(#{contact_name},#{contact_subject},#{contact_phone},#{contact_email},#{contact_message},#{contact_major},#{contact_data},#{contact_department})
     </insert>
 
     <select id="selectStudentByNameAndNumber" resultMap="student">
@@ -25,6 +76,21 @@
 
     <select id="likeSelectByName" resultMap="student">
         SELECT * FROM  student WHERE contact_name like CONCAT(CONCAT('%',#{name,jdbcType=VARCHAR}), '%')
+    </select>
+
+    <select id="selectStudentByMy" resultMap="student" parameterType="cn.de.ssm.po.Student">
+        SELECT * FROM student 
+        <include refid="sql_where"></include>
+    </select>
+
+    <delete id="delectById" parameterType="cn.de.ssm.po.Student">
+        DELETE FROM student
+        <include refid="sql_where"></include>
+    </delete>
+
+    <select id="selectByType" parameterType="cn.de.ssm.po.Student" resultMap="student">
+        SELECT * FROM student
+        <include refid="sql_select"></include>
     </select>
 
 </mapper>

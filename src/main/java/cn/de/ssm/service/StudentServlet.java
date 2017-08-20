@@ -1,6 +1,7 @@
 package cn.de.ssm.service;
 
 import cn.de.ssm.mapper.StudentMapper;
+import cn.de.ssm.po.Admin;
 import cn.de.ssm.po.Student;
 import cn.de.ssm.util.AllCheck;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,10 +20,9 @@ public class StudentServlet {
 
     public int register(Student student) {
         AllCheck check = new AllCheck();
-        // 1代表成功， 2代表不成功， 3代表已注册
+        // 1代表不成功， 2代表成功， 3代表已注册
         int type = 2;
         Student temp = studentMapper.selectStudentByNameAndNumber(student.getContact_name(),student.getContact_subject());
-        student.setId(temp.getId());
         if(temp == null) {
             if(!check.isMobileNO(student.getContact_phone())) {
                 type = 1;
@@ -37,6 +37,7 @@ public class StudentServlet {
                 studentMapper.register(student);
             }
         }else {
+            student.setId(temp.getId());
             studentMapper.updateByPrimaryKey(student) ;
             type = 3 ;
         }
@@ -46,6 +47,12 @@ public class StudentServlet {
     public List<Student> test(String name) {
         List<Student> ss = studentMapper.likeSelectByName(name) ;
         return ss ;
+    }
+
+    public List<Student> selectAll(Student student) {
+        List<Student> students = studentMapper.selectAll() ;
+        students.remove(student) ;
+        return students;
     }
 
 }

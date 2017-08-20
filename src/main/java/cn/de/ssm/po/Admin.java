@@ -4,10 +4,7 @@ import cn.de.ssm.validated.AdminCreateAcount;
 import cn.de.ssm.validated.AdminLogin;
 import org.hibernate.validator.constraints.Email;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -26,7 +23,7 @@ public class Admin {
     private String password ;
     private String email ;
     private String sex ;
-    @Size(min = 13)
+    @Column(name = "photo_number")
     private String photoNumber ;
     private String department ;
 

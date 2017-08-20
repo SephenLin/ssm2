@@ -128,7 +128,7 @@ ${success == null}
             feedbackIcons: {
                 valid: 'glyphicon glyphicon-ok',
                 invalid: 'glyphicon glyphicon-remove',
-                validating: 'glyphicon glyphicon-refresh'
+                validating: 'glyphicon glyphicon-refresh',
             },
 
             fields: {
@@ -137,6 +137,12 @@ ${success == null}
                     validators: {
                         notEmpty: {
                             message: '用户名不能为空'
+                        },
+                        remote: {
+                            url: '${pageContext.request.contextPath }/admin/checkAdminAccount.action',//验证地址
+                            message: '用户已存在',//提示消息
+                            delay :  2000,//每输入一个字符，就发ajax请求，服务器压力还是太大，设置2秒发送一次ajax（默认输入一个字符，提交一次，服务器压力太大）
+                            type: 'POST'//请求方式
                         },
                         regexp: {
                             regexp: /^[a-zA-Z0-9_]+$/,

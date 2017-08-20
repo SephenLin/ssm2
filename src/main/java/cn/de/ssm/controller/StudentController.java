@@ -41,7 +41,7 @@ public class StudentController {
             type = 1;
             model.addAttribute("studentError", studentError) ;
         }
-        if(type >= 1 && type < 2) {
+        if(type > 1 && type <= 2) {
             model.addAttribute("registerSuccess", "注册成功") ;
             System.out.println("----------" + student.getContact_phone() + "--------" + type);
             return "register/registerSuccess";
